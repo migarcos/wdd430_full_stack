@@ -14,15 +14,24 @@
     </script> -->
     <script type="text/jsx">
       const domNode = document.getElementById('app');
-      function Header() {
-        return <h1>Develop. Preview. Ship.</h1>;
+      function Header({ title }) {
+        return <h1>{title ? title: 'Default Title'}</h1>;
       }
 
       function HomePage() {
+        const names = ['Mike Wazowski', 'James P. Sullivan', 'Boo', 'Randall Boggs', 'Celia'];
+
         return (
             <div>
                 <Header />
-                <Header />
+                <Header title="React"/>
+                <Header title="A new Title"/>
+
+                <ul> 
+                  { names.map( (name) => (
+                      <li key={name}>{name}</li> 
+                  ))}
+                </ul>
             </div>
         );
       }
